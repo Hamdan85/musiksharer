@@ -1,0 +1,226 @@
+section.vbox
+  section.scrollable
+    section.hbox.stretch
+      aside.aside-lg.bg-light.lter.b-r
+        section.vbox
+          section.scrollable
+            .wrapper
+              .text-center.m-b.m-t
+                a.thumb-lg[href="#"]
+                  = image_tag 'a0.png', class: 'img-circle'
+                div
+                  .h3.m-t-xs.m-b-xs
+                    = @user.name
+              .panel.wrapper
+                .row.text-center
+                  .col-xs-6
+                    a[href="#"]
+                      span.m-b-xs.h4.block
+                        | 245
+                      small.text-muted
+                        | Followers
+                  .col-xs-6
+                    a[href="#"]
+                      span.m-b-xs.h4.block
+                        | 55
+                      small.text-muted
+                        | Following
+              .btn-group.btn-group-justified.m-b
+                a.btn.btn-success.btn-rounded[data-toggle="button"]
+                  span.text
+                    i.fa.fa-eye
+                    |  Follow 
+                  span.text-active
+                    i.fa.fa-eye
+                    |  Following 
+                a.btn.btn-dark.btn-rounded
+                  i.fa.fa-comment-o
+                  |  Chat 
+              div
+                small.text-uc.text-xs.text-muted
+                  | about me
+                p
+                  | Artist
+                small.text-uc.text-xs.text-muted
+                  | info
+                p
+                  | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.
+                .line
+                small.text-uc.text-xs.text-muted
+                  | connection
+                p.m-t-sm
+                  a.btn.btn-rounded.btn-twitter.btn-icon[href="#"]
+                    i.fa.fa-twitter
+                  a.btn.btn-rounded.btn-facebook.btn-icon[href="#"]
+                    i.fa.fa-facebook
+                  a.btn.btn-rounded.btn-gplus.btn-icon[href="#"]
+                    i.fa.fa-google-plus
+      aside.bg-white
+        section.vbox
+          header.header.bg-light.lt
+            ul.nav.nav-tabs.nav-white
+              li.active
+                a[href="#activity" data-toggle="tab"]
+                  | Activity
+              li
+                a[href="#events" data-toggle="tab"]
+                  | Events
+              li
+                a[href="#interaction" data-toggle="tab"]
+                  | Interaction
+          section.scrollable
+            .tab-content
+              #activity.tab-pane.active
+                ul.list-group.no-radius.m-b-none.m-t-n-xxs.list-group-lg.no-border
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a0.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 3 minuts ago
+                      strong.block
+                        | Drew Wllon
+                      small
+                        | Wellcome and play this web application template ... 
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a1.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 1 hour ago
+                      strong.block
+                        | Jonathan George
+                      small
+                        | Morbi nec nunc condimentum...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a2.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 2 hours ago
+                      strong.block
+                        | Josh Long
+                      small
+                        | Vestibulum ullamcorper sodales nisi nec...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a3.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 1 day ago
+                      strong.block
+                        | Jack Dorsty
+                      small
+                        | Morbi nec nunc condimentum...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a4.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 3 days ago
+                      strong.block
+                        | Morgen Kntooh
+                      small
+                        | Mobile first web app for startup...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a5.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | Jun 21
+                      strong.block
+                        | Yoha Omish
+                      small
+                        | Morbi nec nunc condimentum...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a6.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | May 10
+                      strong.block
+                        | Gole Lido
+                      small
+                        | Vestibulum ullamcorper sodales nisi nec...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a7.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | Jan 2
+                      strong.block
+                        | Jonthan Snow
+                      small
+                        | Morbi nec nunc condimentum...
+                  li.list-group-item[href="#email-content" data-toggle="class:show"]
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a8.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 3 minuts ago
+                      strong.block
+                        | Drew Wllon
+                      small
+                        | Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...
+                  li.list-group-item
+                    a.thumb-sm.pull-left.m-r-sm[href="#"]
+                      = image_tag 'a9.png', class: 'img-circle'
+                    a.clear[href="#"]
+                      small.pull-right
+                        | 1 hour ago
+                      strong.block
+                        | Jonathan George
+                      small
+                        | Morbi nec nunc condimentum...
+              #events.tab-pane
+                .text-center.wrapper
+                  i.fa.fa-spinner.fa.fa-spin.fa.fa-large
+              #interaction.tab-pane
+                .text-center.wrapper
+                  i.fa.fa-spinner.fa.fa-spin.fa.fa-large
+      aside.col-lg-3.b-l
+        section.vbox
+          section.scrollable.padder-v
+            .panel
+              h4.font-thin.padder
+                | Latest Tweets
+              ul.list-group
+                li.list-group-item
+                  p
+                    | Wellcome 
+                    a.text-info[href="#"]
+                      | @Drew Wllon
+                    |  and play this web application template, have fun1 
+                  small.block.text-muted
+                    i.fa.fa-clock-o
+                    |  2 minuts ago
+                li.list-group-item
+                  p
+                    | Morbi nec 
+                    a.text-info[href="#"]
+                      | @Jonathan George
+                    |  nunc condimentum ipsum dolor sit amet, consectetur
+                  small.block.text-muted
+                    i.fa.fa-clock-o
+                    |  1 hour ago
+                li.list-group-item
+                  p
+                    a.text-info[href="#"]
+                      | @Josh Long
+                    |  Vestibulum ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis
+                  small.block.text-muted
+                    i.fa.fa-clock-o
+                    |  2 hours ago
+            .panel.clearfix
+              .panel-body
+                a.thumb.pull-left.m-r[href="#"]
+                  = image_tag 'a0.png', class: 'img-circle'
+                .clear
+                  a.text-info[href="#"]
+                    | @Mike Mcalidek 
+                    i.fa.fa-twitter
+                  small.block.text-muted
+                    | 2,415 followers / 225 tweets
+                  a.btn.btn-xs.btn-success.m-t-xs[href="#"]
+                    | Follow
+a.hide.nav-off-screen-block[href="#" data-toggle="class:nav-off-screen,open" data-target="#nav,html"]
