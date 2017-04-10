@@ -1,0 +1,25 @@
+footer.footer.hidden-xs.no-padder.text-center-nav-xs
+  .bg.hidden-xs
+    .dropdown.dropup.wrapper-sm.clearfix
+      a.dropdown-toggle[href="#" data-toggle="dropdown"]
+        span.thumb-sm.avatar.pull-left.m-l-xs
+          = image_tag 'a3.png', class: 'dker'
+          i.on.b-black
+        span.hidden-nav-xs.clear
+          span.block.m-l
+            strong.font-bold.text-lt
+              = current_user.name
+            b.caret
+          span.text-muted.text-xs.block.m-l
+
+      ul.dropdown-menu.animated.fadeInRight.aside.text-left
+        li
+          span.arrow.bottom.hidden-nav-xs
+          = link_to edit_user_registration_path do
+            | Settings
+        li
+          = link_to user_profile_path(current_user) do
+            | Profile
+        li.divider
+        li
+          = link_to 'Logout', destroy_user_session_path, method: :delete
