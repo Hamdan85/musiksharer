@@ -1,0 +1,94 @@
+section.hbox.stretch
+  section
+    section.vbox
+      section#bjax-target.scrollable.padder-lg.w-f-md
+        a.pull-right.text-muted.m-t-lg[href="#" data-toggle="class:fa-spin"]
+          i#refresh.icon-refresh.i-lg.inline
+        h2.font-thin.m-b
+          | Discover 
+          span.musicbar.animate.inline.m-l-sm[style="width:20px;height:20px"]
+            span.bar1.a1.bg-primary.lter
+            span.bar2.a2.bg-info.lt
+            span.bar3.a3.bg-success
+            span.bar4.a4.bg-warning.dk
+            span.bar5.a5.bg-danger.dker
+        .row.row-sm
+          - @tracks.each do |track|
+            .col-xs-6.col-sm-4.col-md-3.col-lg-2
+              .item
+                .pos-rlt
+                  .bottom
+                    span.badge.bg-info.m-l-sm.m-b-sm
+                      = duration_translator(track.duration)
+                  .item-overlay.opacity.r.r-2x.bg-black
+                    .text-info.padder.m-t-sm.text-sm
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star
+                      i.fa.fa-star-o.text-muted
+                    .center.text-center.m-t-n
+                      a[href="#"]
+                        i.icon-control-play.i-2x
+                    .bottom.padder.m-b-sm
+                      a.pull-right[href="#"]
+                        i.fa.fa-heart-o
+                      a[href="#"]
+                        i.fa.fa-plus-circle
+                  a[href="#"]
+                    = image_tag track.album.cover_url, class: 'r r-2x img-full'
+                .padder-v
+                  a.text-ellipsis[href="#"]
+                    = track.name
+                  a.text-ellipsis.text-xs.text-muted[href="#"]
+                    = track.album.name
+        .row
+          .col-md-7
+            h3.font-thin
+              | New Songs
+            .row.row-sm
+              - @new_songs.each do |track|
+                .col-xs-6.col-sm-3
+                  .item
+                    .pos-rlt
+                      .item-overlay.opacity.r.r-2x.bg-black
+                        .center.text-center.m-t-n
+                          a[href="#"]
+                            i.fa.fa-play-circle.i-2x
+                      a[href="#"]
+                        = image_tag track.album.cover_url, class: 'r r-2x img-full'
+
+                    .padder-v
+                      a.text-ellipsis[href="#"]
+                        = track.name
+                      a.text-ellipsis.text-xs.text-muted[href="#"]
+                        = track.album.name
+
+          .col-md-5
+            h3.font-thin
+              | Top Songs
+            .list-group.bg-white.list-group-lg.no-bg.auto
+              - @top_songs.each_with_index do |track, index|
+                a.list-group-item.clearfix[href="#"]
+                  span.pull-right.h2.text-muted.m-l
+                    = index + 1
+                  span.pull-left.thumb-sm.avatar.m-r
+                    = image_tag track.album.cover_url
+                  span.clear
+                    span
+                      = track.name
+                    small.text-muted.clear.text-ellipsis
+                      = track.artist.name
+
+      footer.footer.bg-dark
+        = render 'pages/shared/player'
+  = render 'pages/shared/user_list'
+      footer.footer.footer-md.bg-black
+        form[role="search"]
+          .form-group.clearfix.m-b-none
+            .input-group.m-t.m-b
+              span.input-group-btn
+                button.btn.btn-sm.bg-empty.text-muted.btn-icon[type="submit"]
+                  i.fa.fa-search
+              input.form-control.input-sm.text-white.bg-empty.b-b.b-dark.no-border[type="text" placeholder="Search members"]
+a.hide.nav-off-screen-block[href="#" data-toggle="class:nav-off-screen,open" data-target="#nav,html"]
