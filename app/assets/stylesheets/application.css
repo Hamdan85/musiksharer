@@ -16,5 +16,6 @@
  *= require font-awesome.css.erb
  *= require simple-line-icons
  *= require font
+ *= require datepicker
  *= require app
  */
