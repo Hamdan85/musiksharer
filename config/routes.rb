@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   get 'profile/:id', to: 'pages#profile', as: :user_profile
 
+  post 'search', to: 'pages#search', as: :search
+
 end
