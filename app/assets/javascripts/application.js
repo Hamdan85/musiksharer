@@ -12,5 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+//= require app
+//= require jquery.slimscroll.min
+//= require app.plugin
+//= require jquery.jplayer.min
+//= require jplayer.playlist.min
+//= require demo
