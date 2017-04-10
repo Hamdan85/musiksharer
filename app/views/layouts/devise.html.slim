@@ -1,0 +1,26 @@
+doctype html
+html.app[lang="en"]
+  head
+    meta[charset="utf-8"]
+    title
+      | Musik | Web Application
+    meta[name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body.bg-info.dker
+    section#content.m-t-lg.wrapper-md.animated.fadeInDown
+      .container.aside-xl
+        a.navbar-brand.block[href="index.html"]
+          span.h1.font-bold
+            | Musik
+        section.m-b-lg
+          = yield
+    footer#footer
+      .text-center.padder.clearfix
+        p
+          small
+            | Web app framework base on Bootstrap
+            br
+            | © 2014

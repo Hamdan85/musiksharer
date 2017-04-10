@@ -1,18 +1,27 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+section#content.m-t-lg.wrapper-md.animated.fadeInUp
+  .container.aside-xl
+    a.navbar-brand.block[href="index.html"]
+      span.h1.font-bold
+        | Musik
+    section.m-b-lg
+      header.wrapper.text-center
+        strong
+          | Sign in to get in touch
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.email_field :email, autofocus: true, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Email'
+        .form-group
+          = f.password_field :password, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Email'
+        button.btn.btn-lg.btn-warning.lt.b-white.b-2x.btn-block.btn-rounded[type="submit"]
+          i.icon-arrow-right.pull-right
+          span.m-r-n-lg
+            | Sign in
+        .text-center.m-t.m-b
+          = link_to new_user_password_path do
+            small
+              | Forgot password?
+        .line.line-dashed
+        p.text-muted.text-center
+          small
+            | Do not have an account?
+        = link_to 'Create an account', new_user_registration_path, class: 'btn btn-lg btn-info btn-block rounded'

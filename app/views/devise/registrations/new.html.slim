@@ -1,24 +1,23 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+header.wrapper.text-center
+  strong
+    | Sign up to find interesting thing
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    .form-group
+      = devise_error_messages!
+    .form-group
+      = f.text_field :name, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Name'
+    .form-group
+      = f.email_field :email, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Email'
+    .form-group
+      = f.password_field :password, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password'
+    .form-group
+      = f.password_field :password_confirmation, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password Confirmation'
+    = f.button(type: 'submit', class: 'btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded') do
+      i.icon-arrow-right.pull-right
+      span.m-r-n-lg
+        | Sign up
+    .line.line-dashed
+    p.text-muted.text-center
+      small
+        | Already have an account?
+    = link_to 'Sign in', new_user_session_path, class: 'btn btn-lg btn-info btn-block btn-rounded'
