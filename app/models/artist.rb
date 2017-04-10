@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
 
+  extend FriendlyId
+
   searchkick
 
   has_many :albums
@@ -8,5 +10,13 @@ class Artist < ApplicationRecord
   validates :name,
             presence: true,
             uniqueness: true
+
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+        [:id, :name]
+    ]
+  end
 
 end

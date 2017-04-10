@@ -1,5 +1,7 @@
 class Album < ApplicationRecord
 
+  extend FriendlyId
+
   searchkick
 
   belongs_to :artist
@@ -12,5 +14,13 @@ class Album < ApplicationRecord
 
   validates :cover_url,
             presence: true
+
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+        [:id, :name]
+    ]
+  end
 
 end

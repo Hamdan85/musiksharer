@@ -1,5 +1,7 @@
 class Track < ApplicationRecord
 
+  extend FriendlyId
+
   searchkick
 
   belongs_to :album
@@ -16,4 +18,14 @@ class Track < ApplicationRecord
             presence: true
 
   validates_associated :album
+
+  friendly_id :slug_candidates, use: :slugged
+
+  def slug_candidates
+    [
+        [:id, :name]
+    ]
+  end
+
+
 end
