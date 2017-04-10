@@ -2,8 +2,6 @@ class Artist < ApplicationRecord
 
   extend FriendlyId
 
-  searchkick
-
   has_many :albums
   has_many :tracks, through: :albums
 
@@ -18,5 +16,7 @@ class Artist < ApplicationRecord
         [:id, :name]
     ]
   end
+
+
 
 end

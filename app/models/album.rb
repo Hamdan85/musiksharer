@@ -2,8 +2,6 @@ class Album < ApplicationRecord
 
   extend FriendlyId
 
-  searchkick
-
   belongs_to :artist
 
   has_many :tracks
