@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  extend FriendlyId
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -10,4 +12,13 @@ class User < ApplicationRecord
   validates :name,
             presence: true
 
+
+  friendly_id :slug_candidates, use: :slugged
+
+
+  def slug_candidates
+    [
+        [:id, :name]
+    ]
+  end
 end
