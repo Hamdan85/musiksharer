@@ -19,14 +19,18 @@ class MusicSearcher
     @tracks   = []
     @query    = query
 
-    @results = Track.query(@query)
+    assign_results
 
-    create_by_spotify if @results.empty?
-
-    Track.query(@query)
+    if @results.empty?
+      create_by_spotify
+      assign_results
+    end
   end
 
   private
+  def assign_results
+    @results = Track.query(@query)
+  end
 
   def create_by_spotify
     @tracks = RSpotify::Track.search(@query)
