@@ -1,1 +1,5 @@
-$('#search_results').empty().append("<%=j render partial: 'pages/shared/search_results', locals: { tracks: @tracks }%>")
+$('#search_results').fadeOut(100, function() {
+    $(this).empty();
+}).fadeIn(100, function(){
+    $(this).append("<%=j render partial: 'pages/shared/search_results', locals: { tracks: @tracks }%>");
+});

@@ -36,17 +36,12 @@ class Track < ApplicationRecord
     }
   end
 
-  def self.query(query, page = 1)
-    if query.nil?
-      page(page)
-    else
-      search(
-          query,
-          fields: %w(name^10 album artist),
-          page: page,
-          per_page: 10
-      )
-    end
+  def self.query(query = nil)
+    query = query || '*'
+    search(
+        query,
+        fields: %w(name^10 album artist),
+    )
   end
 
 end
