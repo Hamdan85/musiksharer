@@ -27,6 +27,7 @@ gem 'searchkick'
 gem 'sidekiq'
 gem 'sinatra', :require => nil
 gem 'slim-rails'
+gem 'sprockets', '3.6.3'
 gem 'therubyracer'
 gem 'turbolinks', '~> 5'
 gem 'twitter-bootstrap-rails'
@@ -50,9 +51,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock'
   gem 'simplecov', :require => false
-
+  gem 'webmock'
 end
 
 group :development do
