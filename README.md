@@ -16,7 +16,7 @@ Musics are added from spotify platform.
 * Ruby 2.3.1
 * Rails 5.02
 * Elasticsearch (Searchkick)
-* Sidekiq (Opcional)
+* Sidekiq
 
 ## Installation
 
@@ -68,6 +68,13 @@ Necessary addons on Heroku:
 * SendGrid
 
 Don't forget to turn on at least one workier for cron jobs and mailers (sidekiq).
+
+## Admin Address
+Access '/admin' in order to access admin dashboard
+Username: admin@musiksharer.com
+Password: password
+
+ps: You should have run rake db:seed
 
 ### Current Code Coverage
 Coverage report generated for RSpec:
