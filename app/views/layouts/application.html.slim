@@ -18,13 +18,12 @@ html.app[lang="en"]
 
         = render 'layouts/shared/search_bar'
 
-        .navbar-right
-          ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
-            - if user_signed_in?
+        - if user_signed_in?
+          .navbar-right
+            ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
               = render 'layouts/shared/user_dropdown'
-            - else
-              li
-                = link_to 'Register', new_user_registration_path, class: 'btn btn-primary'
+        - else
+          = link_to 'Register', new_user_registration_path, class: 'btn btn-dark'
 
 
       section

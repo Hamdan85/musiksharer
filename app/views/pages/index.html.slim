@@ -12,36 +12,9 @@ section.hbox.stretch
             span.bar3.a3.bg-success
             span.bar4.a4.bg-warning.dk
             span.bar5.a5.bg-danger.dker
-        .row.row-sm
-          - @tracks.each do |track|
-            .col-xs-6.col-sm-4.col-md-3.col-lg-2
-              .item
-                .pos-rlt
-                  .bottom
-                    span.badge.bg-info.m-l-sm.m-b-sm
-                      = duration_translator(track.duration)
-                  .item-overlay.opacity.r.r-2x.bg-black
-                    .text-info.padder.m-t-sm.text-sm
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star-o.text-muted
-                    .center.text-center.m-t-n
-                      a[href="#"]
-                        i.icon-control-play.i-2x
-                    .bottom.padder.m-b-sm
-                      a.pull-right[href="#"]
-                        i.fa.fa-heart-o
-                      a[href="#"]
-                        i.fa.fa-plus-circle
-                  a[href="#"]
-                    = image_tag track.album.cover_url, class: 'r r-2x img-full'
-                .padder-v
-                  a.text-ellipsis[href="#"]
-                    = track.name
-                  a.text-ellipsis.text-xs.text-muted[href="#"]
-                    = track.album.name
+        #search_results.row.row-sm
+          = render partial: 'pages/shared/search_results', locals: { tracks: @tracks }
+
         .row
           .col-md-7
             h3.font-thin

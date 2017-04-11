@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
   def index
-    @tracks = Track.all.order(:created_at).limit(8).reverse
-    @new_songs = Track.where(created_at: new_period).limit(8)
-    @top_songs = Track.where(created_at: new_period).limit(8)
-  end
+    @page = params[:page] || 1
 
-  def search
-    @query = params[:query]
+    @new_songs = Track.where(created_at: new_period).limit(12).reverse
+    @top_songs = Track.where(created_at: new_period).limit(10)
 
-    @results = MusicSearcher.search(@query)
+    @query = params[:query] || '*'
+
+    @tracks = MusicSearcher.search(@query).results.records.page(@page).per(1)
   end
 
   def profile
