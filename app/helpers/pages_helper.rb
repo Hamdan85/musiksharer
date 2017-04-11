@@ -18,7 +18,7 @@ module PagesHelper
       end
     else
       link_to new_user_registration_path, class: 'pull-right' do
-        "<i class='fa #{heart}'></i>".html_safe
+        "<i class='fa fa-heart-o'></i>".html_safe
       end
     end
   end
