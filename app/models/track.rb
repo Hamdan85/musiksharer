@@ -22,11 +22,6 @@ class Track < ApplicationRecord
 
   friendly_id :slug_candidates, use: :slugged
 
-  default_scope { left_joins(:users_tracks)
-                      .group(:id)
-                      .order('COUNT(users_tracks.id) DESC')
-  }
-
 
   def slug_candidates
     [
