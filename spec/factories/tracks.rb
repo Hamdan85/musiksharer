@@ -1,9 +1,10 @@
 FactoryGirl.define do
   factory :track do
-    album nil
     duration 1
     isrc "MyString"
     name "MyString"
-    audio_preview ""
+    audio_preview "http://www.audio.com/mp4.mp3"
+
+    association :album, factory: :album
   end
 end

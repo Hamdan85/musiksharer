@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe UsersTrack, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "must be associated with an user" do
+    expect(build(:users_track, :invalid_user)).to be_invalid
+  end
+
+  it "must be associated with an user" do
+    expect(build(:users_track, :invalid_track)).to be_invalid
+  end
 end

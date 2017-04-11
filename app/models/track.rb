@@ -19,6 +19,7 @@ class Track < ApplicationRecord
             presence: true
 
   validates_associated :album
+  validates_presence_of :album
 
   friendly_id :slug_candidates, use: :slugged
 
