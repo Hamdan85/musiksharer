@@ -22,4 +22,8 @@ module PagesHelper
       end
     end
   end
+
+  def remote_status
+    controller_name == 'pages' && action_name == 'index' ? true : false
+  end
 end
