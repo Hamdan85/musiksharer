@@ -4,126 +4,17 @@ aside#sidebar.aside-md.bg-light.dk
       h4.font-thin.m-l-md.m-t
         | Connected
       ul.list-group.no-bg.no-borders.auto.m-t-n-xxs
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a1.png', class: 'img-circle'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Chris Fox
-            small.text-muted
-              | New York
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Amanda Conlan
-            small.text-muted
-              | France
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.busy.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Dan Doorack
-            small.text-muted
-              | Hamburg
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.away.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Lauren Taylor
-            small.text-muted
-              | London
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a5.png', class: 'img-circle'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Chris Fox
-            small.text-muted
-              | Milan
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Amanda Conlan
-            small.text-muted
-              | Copenhagen
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.busy.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Dan Doorack
-            small.text-muted
-              | Barcelona
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.away.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Lauren Taylor
-            small.text-muted
-              | Tokyo
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a9.png', class: 'img-circle'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Chris Fox
-            small.text-muted
-              | UK
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.on.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Amanda Conlan
-            small.text-muted
-              | Africa
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.busy.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Dan Doorack
-            small.text-muted
-              | Paris
-        li.list-group-item
-          span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
-            = image_tag 'a0.png'
-            i.away.b-light.right.sm
-          .clear
-            div
-              a[href="#"]
-                | Lauren Taylor
-            small.text-muted
-              | Brussels
+        - @online_users.each do |user|
+          li.list-group-item
+            span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+              = image_tag 'a1.png', class: 'img-circle'
+              i.on.b-light.right.sm
+            .clear
+              div
+                = link_to user.name, user_profile_path(user)
+              small.text-muted
+                = user.birthdate
+
     footer.footer.footer-md.bg-black
       form[role="search"]
         .form-group.clearfix.m-b-none

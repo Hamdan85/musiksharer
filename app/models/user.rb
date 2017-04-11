@@ -29,4 +29,8 @@ class User < ApplicationRecord
       tracks << track
     end
   end
+
+  def update_last_action
+    update_attribute(:last_action, Time.now)
+  end
 end
