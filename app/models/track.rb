@@ -44,4 +44,9 @@ class Track < ApplicationRecord
     )
   end
 
+  def self.top_rated
+    left_joins(:users_tracks)
+        .group(:id)
+        .order('COUNT(users_tracks.id) DESC')
+  end
 end

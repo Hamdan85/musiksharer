@@ -3,12 +3,11 @@ class PagesController < ApplicationController
     @page = params[:page] || 1
 
     @new_songs = Track.where(created_at: new_period).limit(12).reverse
-    @top_songs = Track.where(created_at: new_period).limit(10)
+    @top_songs = Track.top_rated.limit(10)
 
     @query = params[:query] || '*'
 
     @tracks = MusicSearcher.search(@query).results.records.page(@page).per(12)
-
   end
 
   def profile
