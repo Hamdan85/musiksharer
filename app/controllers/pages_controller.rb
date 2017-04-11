@@ -23,6 +23,6 @@ class PagesController < ApplicationController
   private
 
   def new_period
-    (Date.today.at_beginning_of_day - 1.week)..Time.now
+    (Date.today.at_beginning_of_day - 1.day)..Time.now
   end
 end
