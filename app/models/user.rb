@@ -21,4 +21,12 @@ class User < ApplicationRecord
         [:id, :name]
     ]
   end
+
+  def toggle_favorite_track(track)
+    if tracks.include?(track)
+      tracks.delete(track)
+    else
+      tracks << track
+    end
+  end
 end

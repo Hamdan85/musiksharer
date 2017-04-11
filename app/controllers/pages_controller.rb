@@ -7,11 +7,18 @@ class PagesController < ApplicationController
 
     @query = params[:query] || '*'
 
-    @tracks = MusicSearcher.search(@query).results.records.page(@page).per(1)
+    @tracks = MusicSearcher.search(@query).results.records.page(@page).per(12)
+
   end
 
   def profile
     @user = User.find(params[:id]) || current_user
+  end
+
+  def add_favorite
+    @track = Track.friendly.find(params[:track_id])
+
+    current_user.toggle_favorite_track(@track)
   end
 
   private

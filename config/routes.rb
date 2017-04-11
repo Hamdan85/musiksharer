@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   post 'search', to: 'pages#index', as: :search
 
+  post 'favorite/:track_id', to: 'pages#add_favorite', as: :add_favorite_track
 end
