@@ -7,34 +7,30 @@ aside#nav.bg-black.dk.aside.hidden-print
             li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
               |  Discover
             li
-              a[href="index.html"]
+              = link_to root_path
                 i.icon-disc.icon.text-success
                 span.font-bold
                   | What's new
-            li
+            /li
               a[href="genres.html"]
                 i.icon-music-tone-alt.icon.text-info
                 span.font-bold
                   | Genres
-            li
+            /li
               a[href="events.html"]
                 i.icon-drawer.icon.text-primary-lter
                 b.badge.bg-primary.pull-right
                   | 6
                 span.font-bold
                   | Events
-            li
+            /li
               a[href="listen.html"]
                 i.icon-list.icon.text-info-dker
                 span.font-bold
                   | Listen
-            li
-              a[href="video.html" data-target="#content" data-el="#bjax-el" data-replace="true"]
-                i.icon-social-youtube.icon.text-primary
-                span.font-bold
-                  | Video
+
             li.m-b.hidden-nav-xs
-          ul.nav[data-ride="collapse"]
+          /ul.nav[data-ride="collapse"]
             li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
               |  Interface
             li
