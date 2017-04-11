@@ -17,7 +17,6 @@
 //= require app
 //= require jquery.slimscroll.min
 //= require app.plugin
-//= require jquery.jplayer.min
-//= require jplayer.playlist.min
+//= require jquery.jplayer
 //= require demo
 //= require bootstrap-datepicker
