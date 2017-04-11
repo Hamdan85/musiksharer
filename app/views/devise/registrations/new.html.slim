@@ -8,12 +8,12 @@ header.wrapper.text-center
       = f.text_field :name, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Name'
     .form-group
       = f.email_field :email, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Email'
-    .form-groupx
-      = f.text_field :birthdate, class: 'form-control rounded input-lg text-center no-border datepicker-input', placeholder: 'Birthdate
     .form-group
-      = f.password_field :password, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password'
+      = f.text_field :birthdate, class: 'form-control rounded input-lg text-center no-border datepicker-input', placeholder: 'Birthdate'
     .form-group
-      = f.password_field :password_confirmation, class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password Confirmation'
+      = f.password_field :password, autocomplete: 'off', class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password'
+    .form-group
+      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control rounded input-lg text-center no-border', placeholder: 'Password Confirmation'
     = f.button(type: 'submit', class: 'btn btn-lg btn-warning lt b-white b-2x btn-block btn-rounded') do
       i.icon-arrow-right.pull-right
       span.m-r-n-lg
