@@ -17,3 +17,8 @@
 .byebug_history
 .env
 .idea
+
+#ignore coverage files
+/coverage/*
+spec/coverage
+spec/log

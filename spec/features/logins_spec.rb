@@ -23,16 +23,26 @@ RSpec.feature "Logins", type: :feature do
 
     expect(page).to have_current_path(root_path)
   end
-  
-  scenario 'User wants to logout' do
 
-    user = create(:user)
+  scenario 'User wants to login and logout' do
 
-    sign_in user
+    password = 'secure@password'
+    user = create(:user, password: password, password_confirmation: password)
 
     visit '/'
 
-    click_link 'Logout'
+    click_link 'Login'
+
+    within('#new_user') do
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: password
+    end
+
+    click_button 'Sign in'
+
+    expect(page).to have_current_path(root_path)
+
+    first(:link, 'Logout').click
 
     expect(page).to have_current_path(root_path)
   end
