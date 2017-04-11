@@ -29,5 +29,9 @@ module Musiksharer
       Devise::UnlocksController.layout "devise"
       Devise::PasswordsController.layout "devise"
     end
+
+    config.action_mailer.default_url_options = {
+        host: ENV["DOMAIN_NAME"]
+    }
   end
 end
