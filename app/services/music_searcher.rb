@@ -24,6 +24,8 @@ class MusicSearcher
     if @results.empty?
       create_by_spotify
       assign_results
+    else
+      delay.create_by_spotify
     end
   end
 
@@ -32,8 +34,15 @@ class MusicSearcher
     @results = Track.query(@query)
   end
 
+  @tracks = []
+
   def create_by_spotify
-    @tracks = RSpotify::Track.search(@query)
+
+    RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
+
+    @tracks << RSpotify::Track.search(@query)
+    @tracks << RSpotify::Recommendations.generate(seed_genres: @query.split(' ')).tracks
+    @tracks = @tracks.flatten
 
     @tracks.each do |track|
       artist  = set_artist(track)
