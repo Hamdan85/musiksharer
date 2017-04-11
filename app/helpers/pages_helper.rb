@@ -3,6 +3,10 @@ module PagesHelper
     minutes = duration / 60
     seconds = duration % 60
 
-    "#{minutes}:#{seconds}"
+    "#{minutes}:#{seconds.to_s.rjust(2, '0')}"
+  end
+
+  def query(param)
+    param == '*' ? '' : param
   end
 end
