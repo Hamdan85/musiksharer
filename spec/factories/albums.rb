@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :album do
-    name "MyString"
+    name Faker::Name.name
     cover_url "MyString"
 
     association :artist, factory: :artist
