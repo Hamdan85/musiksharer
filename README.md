@@ -24,6 +24,10 @@ Install Gems:
 ```
 $ bundle install
 ```
+Set Env Variables
+```
+$ cp example.env .env
+```
 
 ## Migrate Database
 ```
