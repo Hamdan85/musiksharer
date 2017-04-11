@@ -1,4 +1,4 @@
-var container = $('.col-xs-6.col-sm-4.col-md-3.col-lg-2[data-track-id="<%= @track.friendly_id %>"] .link_container');
+var container = $('.track-container[data-track-id="<%= @track.friendly_id %>"] .link_container');
 var new_content = '<%=j html_escape(link_to_favorite(@track)) %>';
 container.first().html(new_content);
 
