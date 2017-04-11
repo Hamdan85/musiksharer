@@ -4,10 +4,9 @@ class Track < ApplicationRecord
 
   searchkick
 
-  paginates_per 10
-
   belongs_to :album
-  belongs_to :artist
+  has_one :artist, through:  :album
+
 
   has_many :users_tracks
   has_many :users, through: :users_tracks
