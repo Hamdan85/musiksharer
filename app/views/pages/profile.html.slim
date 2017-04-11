@@ -36,7 +36,7 @@ section.vbox
                 a.btn.btn-dark.btn-rounded
                   i.fa.fa-comment-o
                   |  Chat 
-              div
+              /div
                 small.text-uc.text-xs.text-muted
                   | about me
                 p
@@ -61,124 +61,25 @@ section.vbox
             ul.nav.nav-tabs.nav-white
               li.active
                 a[href="#activity" data-toggle="tab"]
-                  | Activity
-              li
-                a[href="#events" data-toggle="tab"]
-                  | Events
-              li
-                a[href="#interaction" data-toggle="tab"]
-                  | Interaction
+                  | Favorites
           section.scrollable
             .tab-content
               #activity.tab-pane.active
                 ul.list-group.no-radius.m-b-none.m-t-n-xxs.list-group-lg.no-border
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a0.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 3 minuts ago
-                      strong.block
-                        | Drew Wllon
-                      small
-                        | Wellcome and play this web application template ... 
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a1.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 1 hour ago
-                      strong.block
-                        | Jonathan George
-                      small
-                        | Morbi nec nunc condimentum...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a2.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 2 hours ago
-                      strong.block
-                        | Josh Long
-                      small
-                        | Vestibulum ullamcorper sodales nisi nec...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a3.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 1 day ago
-                      strong.block
-                        | Jack Dorsty
-                      small
-                        | Morbi nec nunc condimentum...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a4.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 3 days ago
-                      strong.block
-                        | Morgen Kntooh
-                      small
-                        | Mobile first web app for startup...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a5.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | Jun 21
-                      strong.block
-                        | Yoha Omish
-                      small
-                        | Morbi nec nunc condimentum...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a6.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | May 10
-                      strong.block
-                        | Gole Lido
-                      small
-                        | Vestibulum ullamcorper sodales nisi nec...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a7.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | Jan 2
-                      strong.block
-                        | Jonthan Snow
-                      small
-                        | Morbi nec nunc condimentum...
-                  li.list-group-item[href="#email-content" data-toggle="class:show"]
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a8.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 3 minuts ago
-                      strong.block
-                        | Drew Wllon
-                      small
-                        | Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...
-                  li.list-group-item
-                    a.thumb-sm.pull-left.m-r-sm[href="#"]
-                      = image_tag 'a9.png', class: 'img-circle'
-                    a.clear[href="#"]
-                      small.pull-right
-                        | 1 hour ago
-                      strong.block
-                        | Jonathan George
-                      small
-                        | Morbi nec nunc condimentum...
-              #events.tab-pane
-                .text-center.wrapper
-                  i.fa.fa-spinner.fa.fa-spin.fa.fa-large
-              #interaction.tab-pane
-                .text-center.wrapper
-                  i.fa.fa-spinner.fa.fa-spin.fa.fa-large
-      aside.col-lg-3.b-l
+                  - @user.users_tracks.each do |activity|
+                    li.list-group-item
+                      a.thumb-sm.pull-left.m-r-sm[href="#"]
+                        = image_tag activity.track.album.cover_url, class: 'img-circle'
+                      a.clear[href="#"]
+                        small.pull-right
+                          = time_ago_in_words(activity.created_at)
+                        strong.block
+                          = activity.track.artist.name
+                        small
+                          = activity.track.name
+
+
+      /aside.col-lg-3.b-l
         section.vbox
           section.scrollable.padder-v
             .panel

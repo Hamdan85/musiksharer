@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id]) || current_user
+    @user = User.friendly.find(params[:id]) || current_user
   end
 
   def add_favorite
