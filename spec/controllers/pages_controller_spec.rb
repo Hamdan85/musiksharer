@@ -7,17 +7,42 @@ RSpec.describe PagesController, type: :controller do
     login_user
 
     it "should have a current_user" do
-      # note the fact that you should remove the "validate_session" parameter if this was a scaffold-generated controller
       expect(subject.current_user).to_not eq(nil)
     end
 
     it "should get index" do
-      # Note, rails 3.x scaffolding may add lines like get :index, {}, valid_session
-      # the valid_session overrides the devise login. Remove the valid_session from your specs
       get 'index'
       expect(response).to be_success
     end
 
+    let(:track) { create(:track) }
+
+    it "must receive a request for adding a track to favorites" do
+
+      post :add_favorite, params: { track_id: track.slug }, format: 'js'
+
+      expect(response).to have_http_status(:ok)
+      expect(response)
+          .to render_template('add_favorite');
+
+      post :add_favorite, params: { track_id: track.slug }, format: 'js'
+
+      expect(response).to have_http_status(:ok)
+      expect(response)
+          .to render_template('add_favorite');
+    end
+
+  end
+
+  context 'profiles' do
+    let(:user) { create(:user)}
+
+    it "should get profile" do
+      get :profile, params: { id: user.friendly_id }
+
+      expect(assigns(:user)).to eq(user)
+      expect(response).to have_http_status(:ok)
+    end
   end
 
 end
