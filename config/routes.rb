@@ -22,4 +22,9 @@ Rails.application.routes.draw do
     resources :albums, only: [:index, :show]
   end
 
+  # error pages
+  %w( 404 422 500 503 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
+
 end

@@ -74,5 +74,5 @@ ps: You should have run rake db:seed
 
 ### Current Code Coverage
 Coverage report generated for RSpec:
-200 / 248 LOC (80.65%) 
+207 / 260 LOC (79.62%) covered
 

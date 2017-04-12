@@ -4,22 +4,25 @@ html.app[lang="en"]
     meta[charset="utf-8"]
     title
       | MusikSharer | Web Application
-    meta[name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"]
+    meta[name="description" content="MusikSharer is an WebApplication for managing your favorite tracks."]
     meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"]
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    section.vbox
-      header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
-        = render 'layouts/shared/logo'
-        = render 'layouts/shared/navbar_toggle'
-        = render 'layouts/shared/search_bar'
-        = render 'layouts/shared/navbar_right'
+    - if controller_name != 'errors'
+      section.vbox
+        header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+          = render 'layouts/shared/logo'
+          = render 'layouts/shared/navbar_toggle'
+          = render 'layouts/shared/search_bar'
+          = render 'layouts/shared/navbar_right'
 
 
-      section
-        section.hbox.stretch
-          = render 'layouts/shared/navbar'
-          section#content
-            = yield
+        section
+          section.hbox.stretch
+            = render 'layouts/shared/navbar'
+            section#content
+              = yield
+    - else
+      = yield
