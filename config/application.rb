@@ -34,6 +34,6 @@ module Musiksharer
         host: ENV["DOMAIN_NAME"]
     }
 
-    config.active_job.queue_adapter = :sidekiq
+    config.active_job.queue_adapter = :delayed_job
   end
 end

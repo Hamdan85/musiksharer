@@ -39,48 +39,72 @@ class MusicSearcher
 
   def create_by_spotify
 
-    RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
+    #RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
 
-    @tracks << RSpotify::Track.search(@query)
-    @tracks << RSpotify::Recommendations.generate(seed_genres: @query.split(' ')).tracks
-    @tracks = @tracks.flatten
+    results = RSpotify::Base.search(@query, 'artist, track, album')
 
-    @tracks.each do |track|
-      artist  = set_artist(track)
-      album   = set_album(artist, track)
-      track   = set_track(album, track)
+    results.sort_by(&:type).each do |result|
 
-      track
+      case result.type
+      when 'artist'
+        set_artist(result) if result.type == 'artist'
+      when 'album'
+        set_album(result) if result.type == 'album'
+      when 'track'
+        set_track(result) if result.type == 'track'
+      end
     end
 
     Track.query(@query)
   end
 
-  def set_artist(track)
-    artist = Artist.find_or_initialize_by(name: track.artists.first.name)
-    artist.photo = track.artists.first.images.first["url"]
-    artist.genres = track.artists.first.genres
-    artist.save
-    artist
+  def set_artist(artist)
+
+    new_artist = Artist.find_or_initialize_by(name: artist.name)
+    new_artist.photo = (!artist.respond_to?(:images) || artist.images.empty?) ? 'default-artist.png' : artist.images.first["url"]
+    new_artist.genres = artist.genres
+    new_artist.save
+
+    delay.async_album_retrieval(artist.albums)
   end
 
-  def set_album(artist, track)
-    album = artist.albums.find_or_initialize_by(name: track.album.name)
-    album.cover_url = track.album.images.first["url"]
-    album.save
+  def set_album(album)
+    artist = Artist.find_or_initialize_by(name: album.artists.first.name)
 
-    album
+    set_artist(album.artists.first) if artist.new_record?
+
+    new_album = artist.albums.find_or_initialize_by(name: album.name)
+    new_album.cover_url = album.images.empty? ? 'default-artist.png' : album.images.first["url"]
+    new_album.save
+
+    delay.async_album_tracks_retrieval(album)
+
   end
 
-  def set_track(album, track)
-    current_track = album.tracks.find_or_initialize_by(name: track.name)
-    current_track.duration = (track.duration_ms / 1000).to_i
-    current_track.isrc = track.external_ids["isrc"]
-    current_track.audio_preview = track.preview_url
+  def set_track(track)
+    album = Album.find_or_initialize_by(name: track.album.name)
 
-    current_track.save
+    set_album(track.album) if album.new_record?
 
-    current_track
+    new_track = album.tracks.find_or_initialize_by(name: track.name)
+    new_track.duration = (track.duration_ms / 1000).to_i
+    new_track.isrc = track.external_ids["isrc"]
+    new_track.audio_preview = track.preview_url
+
+    new_track.save
+  end
+
+  def async_album_retrieval(albums)
+    albums.each do |album|
+      delay.set_album(album)
+      delay.async_album_tracks_retrieval(album)
+    end
+  end
+
+  def async_album_tracks_retrieval(album)
+    album.tracks.each do |track|
+      delay.set_track(track)
+    end
   end
 
 end
