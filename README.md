@@ -7,6 +7,9 @@
 This app makes possible to people to search and to favoritate musics.
 Musics are added from spotify platform.
 
+THe platform can be accessed in:
+https://musiksharer.herokuapp.com
+
 ## Requirements
 
 * Ruby 2.3.1
