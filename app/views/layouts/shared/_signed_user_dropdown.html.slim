@@ -1,0 +1,18 @@
+ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+  li.dropdown
+    a.dropdown-toggle.bg.clear[href="#" data-toggle="dropdown"]
+      span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+        = image_tag 'a0.png'
+      = current_user.name
+      b.caret
+    ul.dropdown-menu.animated.fadeInRight
+      li
+        span.arrow.top
+        = link_to edit_user_registration_path do
+          | Settings
+      li
+        = link_to user_profile_path(current_user) do
+          | Profile
+      li.divider
+      li
+        = link_to 'Logout', destroy_user_session_path, method: :delete

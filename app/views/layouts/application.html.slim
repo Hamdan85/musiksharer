@@ -13,18 +13,10 @@ html.app[lang="en"]
     section.vbox
       header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
         = render 'layouts/shared/logo'
-
         = render 'layouts/shared/navbar_toggle'
-
         = render 'layouts/shared/search_bar'
+        = render 'layouts/shared/navbar_right'
 
-        - if user_signed_in?
-          .navbar-right
-            ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
-              = render 'layouts/shared/user_dropdown'
-        - else
-          = link_to 'Register', new_user_registration_path, class: 'btn btn-dark pull-right'
-          = link_to 'Login', new_user_session_path, class: 'btn btn-default pull-right'
 
       section
         section.hbox.stretch
