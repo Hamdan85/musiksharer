@@ -1,12 +1,8 @@
 # README
 
-## Badges 
-
 [![Build Status](https://semaphoreci.com/api/v1/hamdan/musiksharer/branches/master/shields_badge.svg)](https://semaphoreci.com/hamdan/musiksharer) [![codebeat badge](https://codebeat.co/badges/d454bc9b-bbe8-4b06-99f9-d768419e0910)](https://codebeat.co/projects/github-com-hamdan85-musiksharer-master)
 
-## About
-
-### MusikSharer
+## About MusikSharer
 
 This app makes possible to people to search and to favoritate musics.
 Musics are added from spotify platform.
@@ -31,7 +27,7 @@ $ cp example.env .env
 
 ## Migrate Database
 ```
-$ rake db:create && rake db:migrate && rake db:seed
+$ rake db:create db:migrate db:seed
 ```
 
 Start Server
@@ -78,5 +74,5 @@ ps: You should have run rake db:seed
 
 ### Current Code Coverage
 Coverage report generated for RSpec:
-170 / 213 LOC (79.81%) covered.
+200 / 248 LOC (80.65%) 
 
