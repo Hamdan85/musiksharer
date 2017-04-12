@@ -18,10 +18,10 @@
           = link_to_favorite(track)
       //a[href="#"]
                 i.fa.fa-plus-circle
-      a[href="#"]
+      = link_to artist_album_path(track.artist, track.album)
         = image_tag track.album.cover_url, class: 'r r-2x img-full'
     .padder-v
       a.text-ellipsis[href="#"]
         = track.name[0..26]
-      a.text-ellipsis.text-xs.text-muted[href="#"]
+      = link_to artist_album_path(track.artist, track.album), class: 'text-ellipsis text-xs text-muted'
         = track.album.name[0..26]

@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   post 'search', to: 'pages#index', as: :search
 
   post 'favorite/:track_id', to: 'pages#add_favorite', as: :add_favorite_track
+
+  resources :artists, only: [:index] do
+    resources :albums, only: [:index, :show]
+  end
+
 end

@@ -1,0 +1,10 @@
+section.vbox
+  section#bjax-target.w-f-md
+    section.hbox.stretch
+      = render partial: 'artists/shared/artists_menu', locals: { artists: @artists }
+
+      section
+        section.vbox
+          h1 Select an Artist
+  footer.footer.bg-info.dker
+    = render 'pages/shared/player'

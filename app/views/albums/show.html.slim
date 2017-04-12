@@ -1,0 +1,77 @@
+section.vbox
+  section#bjax-target.w-f-md
+    section.hbox.stretch
+      = render partial: 'artists/shared/artists_menu', locals: { artists: @artists }
+
+      section.scrollable.wrapper-lg
+        .row
+          .col-sm-8
+            .panel.wrapper-lg
+              .row
+                .col-sm-5
+                  = image_tag @album.cover_url, class: 'img-full m-b'
+                .col-sm-7
+                  h2.m-t-none.text-black
+                    = @album.name
+                  .clearfix.m-b-lg
+                    a.thumb-sm.pull-left.m-r[href="#"]
+                      = image_tag @album.artist.photo, class: 'img-full m-b'
+                    .clear
+                      = link_to @album.artist.name, artist_albums_path(@album.artist), class: 'text-info'
+                      small.block.text-muted
+                        | 2,415 followers / 225 following
+                  .m-b-lg
+                    a.btn.btn-info[href="#"]
+                      | Play
+                    a.btn.btn-default[href="#"]
+                      | 3 Comments
+                  div
+                    |  Tags:
+                    - @album.artist.genres.each do |genre|
+                      a.badge.bg-light[href="#"]
+                        = genre
+
+              .m-t
+                p
+                  | Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. John smith Admin
+              h4.m-t-lg.m-b
+                | Track List
+              ul.list-group.list-group-lg.scrollable
+                - @album.tracks.each do |track|
+                  li.list-group-item
+                    .pull-right.m-l
+                      a.m-r-sm[href="#"]
+                        i.icon-cloud-download
+                      a.m-r-sm[href="#"]
+                        i.icon-plus
+                      a[href="#"]
+                        i.icon-close
+                    a.jp-play-me.m-r-sm.pull-left[href="#"]
+                      i.icon-control-play.text
+                      i.icon-control-pause.text-active
+                    .clear.text-ellipsis
+                      span
+                        = track.name
+                      span.text-muted
+                        =  " -- #{duration_translator(track.duration)}"
+
+              h4.m-t-lg.m-b
+          .col-sm-4
+            .panel.panel-default
+              .panel-heading
+                | Suggestions
+              .panel-body
+                article.media
+                  a.pull-left.thumb-md.m-t-xs[href="#"]
+                    = image_tag 'a0'
+                  .media-body
+                    a.font-semibold[href="#"]
+                      | Bootstrap 3: What you need to know
+                    .text-xs.block.m-t-xs
+                      a[href="#"]
+                        | Travel
+                      |  2 minutes ago
+
+
+  footer.footer.bg-info.dker
+    = render 'pages/shared/player'

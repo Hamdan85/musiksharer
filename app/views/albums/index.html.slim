@@ -1,0 +1,29 @@
+section.vbox
+  section#bjax-target.w-f-md
+    section.hbox.stretch
+      = render partial: 'artists/shared/artists_menu', locals: { artists: @artists }
+
+      section
+        section.vbox
+          section.scrollable.padder-lg
+            h2.font-thin.m-b
+              = @artist.name
+            .row.row-sm
+              - @albums.each do |album|
+                .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                  .item
+                    .pos-rlt
+                      .item-overlay.opacity.r.r-2x.bg-black
+                        .center.text-center.m-t-n
+                          a[href="#"]
+                            i.fa.fa-play-circle.i-2x
+                      = link_to [@artist, album] do
+                        = image_tag album.cover_url, class: 'img r r-2x img-full'
+                    .padder-v
+                      a.text-ellipsis[href="track-detail.html" data-bjax data-target="#bjax-target" data-el="#bjax-el" data-replace="true"]
+                      = link_to album.name, [@artist, album], class: 'text-ellipsis'
+                      = link_to @artist.name, [@artist, album], class: 'text-ellipsis text-xs text-muted'
+
+            = paginate @albums
+  footer.footer.bg-info.dker
+    = render 'pages/shared/player'

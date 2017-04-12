@@ -1,0 +1,6 @@
+aside#sidebar.aside.bg-light.dk
+  section.vbox.animated.fadeInUp
+    section.scrollable.hover
+      .list-group.no-radius.no-border.no-bg.m-t-n-xxs.m-b-none.auto
+        - artists.each do |artist|
+          = link_to artist.name, artist_albums_path(artist), class: 'list-group-item'
