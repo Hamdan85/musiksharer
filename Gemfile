@@ -4,6 +4,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
 gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
+gem 'coveralls', require: false
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'devise'
