@@ -46,9 +46,9 @@ section.vbox
                         i.icon-plus
                       a[href="#"]
                         i.icon-close
-                    a.jp-play-me.m-r-sm.pull-left[href="#"]
-                      i.icon-control-play.text
-                      i.icon-control-pause.text-active
+                    .jp-play-me.m-r-sm.pull-left
+                      i.icon-control-play.text onClick=("$('#jplayer_N').jPlayer('setMedia', {'mp3': '#{track.audio_preview}'}).jPlayer('play');")
+                      i.icon-control-pause.text-active onClick=("$('#jplayer_N').jPlayer('setMedia', {'mp3': '#{track.audio_preview}'}).jPlayer('pause');")
                     .clear.text-ellipsis
                       span
                         = track.name
