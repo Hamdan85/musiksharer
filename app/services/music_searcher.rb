@@ -41,8 +41,8 @@ class MusicSearcher
 
     RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
 
-    @tracks << RSpotify::Track.search(normalize_uri(@query))
-    @tracks << RSpotify::Recommendations.generate(seed_genres: normalize_uri(@query.split(' '))).tracks
+    @tracks << RSpotify::Track.search(@query)
+    @tracks << RSpotify::Recommendations.generate(seed_genres: @query.split(' ')).tracks
     @tracks = @tracks.flatten
 
     @tracks.each do |track|
@@ -58,6 +58,8 @@ class MusicSearcher
 
   def set_artist(track)
     artist = Artist.find_or_initialize_by(name: track.artists.first.name)
+    artist.photo = track.artists.first.images.first["url"]
+    artist.genres = track.artists.first.genres
     artist.save
     artist
   end
