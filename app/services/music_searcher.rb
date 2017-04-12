@@ -1,4 +1,5 @@
 require 'rspotify'
+require 'assets/normalize_uri'
 
 class MusicSearcher
   attr_accessor :query
@@ -40,8 +41,8 @@ class MusicSearcher
 
     RSpotify.authenticate(ENV['SPOTIFY_CLIENT_ID'], ENV['SPOTIFY_CLIENT_SECRET'])
 
-    @tracks << RSpotify::Track.search(@query)
-    @tracks << RSpotify::Recommendations.generate(seed_genres: @query.split(' ')).tracks
+    @tracks << RSpotify::Track.search(normalize_uri(@query))
+    @tracks << RSpotify::Recommendations.generate(seed_genres: normalize_uri(@query.split(' '))).tracks
     @tracks = @tracks.flatten
 
     @tracks.each do |track|
