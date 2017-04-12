@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   after_action :update_user_last_action
 
+  analytical
+
   protected
 
   def configure_permitted_parameters

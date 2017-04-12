@@ -59,6 +59,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    analytical (3.0.12)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
@@ -441,6 +442,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  analytical
   better_errors
   byebug
   cancan

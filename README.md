@@ -1,6 +1,6 @@
 # README
 
-[![Build Status](https://semaphoreci.com/api/v1/hamdan/musiksharer/branches/master/shields_badge.svg)](https://semaphoreci.com/hamdan/musiksharer) [![codebeat badge](https://codebeat.co/badges/d454bc9b-bbe8-4b06-99f9-d768419e0910)](https://codebeat.co/projects/github-com-hamdan85-musiksharer-master)[![Coverage Status](https://coveralls.io/repos/github/Hamdan85/musiksharer/badge.svg?branch=master)](https://coveralls.io/github/Hamdan85/musiksharer?branch=master)
+[![Build Status](https://semaphoreci.com/api/v1/hamdan/musiksharer/branches/master/shields_badge.svg)](https://semaphoreci.com/hamdan/musiksharer) [![codebeat badge](https://codebeat.co/badges/d454bc9b-bbe8-4b06-99f9-d768419e0910)](https://codebeat.co/projects/github-com-hamdan85-musiksharer-master) [![Coverage Status](https://coveralls.io/repos/github/Hamdan85/musiksharer/badge.svg?branch=master)](https://coveralls.io/github/Hamdan85/musiksharer?branch=master)
 
 ## About MusikSharer
 

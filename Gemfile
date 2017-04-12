@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'analytical'
 gem 'cancan'
 gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
