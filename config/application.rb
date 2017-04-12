@@ -33,5 +33,7 @@ module Musiksharer
     config.action_mailer.default_url_options = {
         host: ENV["DOMAIN_NAME"]
     }
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
