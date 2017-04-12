@@ -46,9 +46,9 @@ section.vbox
                         i.icon-plus
                       a[href="#"]
                         i.icon-close
-                    .jp-play-me.m-r-sm.pull-left
-                      i.icon-control-play.text onClick=("$('#jplayer_N').jPlayer('setMedia', {'mp3': '#{track.audio_preview}'}).jPlayer('play');")
-                      i.icon-control-pause.text-active onClick=("$('#jplayer_N').jPlayer('setMedia', {'mp3': '#{track.audio_preview}'}).jPlayer('pause');")
+                    = link_to '#', class: 'jp-play-me m-r-sm pull-left', data: { track_preview_url: track.audio_preview, track_name: track.name, track_artist: track.artist.name, track_album: track.album.name, track_poster: track.album.cover_url}
+                      i.icon-control-play.text
+                      i.icon-control-pause.text-active
                     .clear.text-ellipsis
                       span
                         = track.name

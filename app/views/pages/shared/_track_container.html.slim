@@ -12,8 +12,8 @@
               i.fa.fa-star
               i.fa.fa-star-o.text-muted
         .center.text-center.m-t-n
-          a[href=""]
-            i.icon-control-play.i-2x data-trxack-preview-url=(track.audio_preview) data-track-name=(track.name) data-track-artist=(track.artist.name) data-track-album=(track.album.name) data-track-poster=(track.album.cover_url) onClick=("$('#jplayer_N').jPlayer('setMedia', {'mp3': '#{track.audio_preview}'}).jPlayer('play');")
+          a.jplayer-play data-track-preview-url=(track.audio_preview) data-track-name=(track.name) data-track-artist=(track.artist.name) data-track-album=(track.album.name) data-track-poster=(track.album.cover_url)
+            i.icon-control-play.i-2x
         .link_container.bottom.padder.m-b-sm
           = link_to_favorite(track)
       //a[href="#"]
