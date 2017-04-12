@@ -28,7 +28,7 @@ section.hbox.stretch
                         .center.text-center.m-t-n
                           a[href="#"]
                             i.fa.fa-play-circle.i-2x
-                      a[href="#"]
+                      = link_to artist_album_path(track.artist, track.album), class: 'list-group-item clearfix'
                         = image_tag track.album.cover_url, class: 'r r-2x img-full'
 
                     .padder-v
@@ -42,7 +42,7 @@ section.hbox.stretch
               | Top Songs
             .list-group.bg-white.list-group-lg.no-bg.auto
               - @top_songs.each_with_index do |track, index|
-                a.list-group-item.clearfix[href="#"]
+                = link_to artist_album_path(track.artist, track.album), class: 'list-group-item clearfix'
                   span.pull-right.h2.text-muted.m-l
                     = index + 1
                   span.pull-left.thumb-sm.avatar.m-r
