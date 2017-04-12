@@ -12,7 +12,7 @@ Musics are added from spotify platform.
 * Ruby 2.3.1
 * Rails 5.02
 * Elasticsearch (Searchkick)
-* Sidekiq
+* DelayedJobs
 
 ## Installation
 
