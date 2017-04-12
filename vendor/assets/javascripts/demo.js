@@ -1,23 +1,22 @@
 $(document).ready(function(){
 
-    var playlist = $('a.jp-play-me').map(function (i, element) {
+
+    var myPlaylist = new jPlayerPlaylist({
+        jPlayer: "#jplayer_N",
+        cssSelectorAncestor: "#jp_container_N"
+    }, $('a.jp-play-me').map(function (i, element) {
         return {
             'mp3': $(element).data('track-preview-url'),
             'poster': $(element).data('track-poster'),
             'title': $(element).data('track-artist') + ' - ' + $(this).data('track-name')
         }
-    });
-
-    var myPlaylist = new jPlayerPlaylist({
-        jPlayer: "#jplayer_N",
-        cssSelectorAncestor: "#jp_container_N"
-    }, playlist, {
+    }), {
         playlistOptions: {
             enableRemoveControls: true,
             autoPlay: true
         },
         swfPath: "js/jPlayer",
-        supplied: "webmv, ogv, m4v, oga, mp3",
+        supplied: "mp3",
         smoothPlayBar: true,
         keyEnabled: true,
         audioFullScreen: false
@@ -46,14 +45,10 @@ $(document).ready(function(){
         if( !$this.hasClass('active') ){
             myPlaylist.pause();
         }else{
-            $('#jplayer_N')
-                .jPlayer('setMedia', {
-                    'mp3': $this.data('track-preview-url'),
-                    'poster': $this.data('track-poster'),
-                    'title': $this.data('track-artist') + ' - ' + $(this).data('track-name')
-                })
-                .jPlayer('play');
+            var i = Math.floor(Math.random() * (1 + 7 - 1));
+            myPlaylist.play(i);
         }
+
 
     });
 
