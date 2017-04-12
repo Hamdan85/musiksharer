@@ -48,11 +48,15 @@ class Track < ApplicationRecord
 
   def self.top_rated
     left_joins(:users_tracks)
-        .group(:id)
+        .group(:id, :album_id)
         .order('COUNT(users_tracks.id) DESC')
   end
 
   def favorite_count
     users_tracks.count
+  end
+
+  def full_title
+    "#{artist.name} - #{name}"
   end
 end

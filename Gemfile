@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancan'
+gem 'chartkick'
 gem 'coffee-rails', '~> 4.2'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
